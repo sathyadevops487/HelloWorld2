@@ -26,7 +26,9 @@ pipeline{
 		stage('Build'){
 			steps{
 				echo "Building the code"
-				withMaven(maven: 'Maven3.6.1', bat 'mvn install')				
+				withMaven(maven: 'Maven3.6.1'){
+					bat 'mvn install'
+				}				
 			}
 		}
 		stage('Deploy'){
