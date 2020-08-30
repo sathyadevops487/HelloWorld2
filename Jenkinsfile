@@ -18,7 +18,9 @@ pipeline{
 		stage('Test'){
 			steps{
 				echo "Testing the code"
-				withMaven(maven: 'Maven3.6.1', bat 'mvn test')				
+				withMaven(maven: 'Maven3.6.1'){
+					bat 'mvn test'
+				}				
 			}				
 		}
 		stage('Build'){
