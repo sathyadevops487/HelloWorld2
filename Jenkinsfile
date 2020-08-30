@@ -11,7 +11,7 @@ pipeline{
 			steps{
 				echo "Compiling the code"
 				withMaven(maven: 'Maven3.6.1'){
-					 bat 'mvn clean compile'
+					 'mvn clean compile'
 				}		
 			}				
 		}
@@ -19,7 +19,7 @@ pipeline{
 			steps{
 				echo "Testing the code"
 				withMaven(maven: 'Maven3.6.1'){
-					bat 'mvn test'
+					'mvn test'
 				}				
 			}				
 		}
@@ -27,7 +27,7 @@ pipeline{
 			steps{
 				echo "Building the code"
 				withMaven(maven: 'Maven3.6.1'){
-					bat 'mvn install'
+					'mvn install'
 				}				
 			}
 		}
