@@ -16,6 +16,18 @@ pipeline{
 					bat 'mvn clean compile'
 				  }
 	             }
+	             steps{
+					echo "Testing the code"
+					withMaven(maven: 'Maven3.6.1'){
+					bat 'mvn test'
+				  }
+	             }
+	             steps{
+					echo "Building the code"
+					withMaven(maven: 'Maven3.6.1'){
+					bat 'mvn install'
+				  }
+	             }
 	            }
 	            stage('Build in Linux'){
 	             agent {
@@ -28,39 +40,32 @@ pipeline{
 				  }
 	             }
 	            }
-	       }
-					
-		}	
-	
-		stage('Compile'){
-			steps{
-				echo "Compiling the code"
-				withMaven(maven: 'Maven3.6.1'){
-					bat 'mvn clean compile'
-				}		
-			}				
-		}
-		stage('Test'){
-			steps{
-				echo "Testing the code"
-				withMaven(maven: 'Maven3.6.1'){
-					bat 'mvn test'
-				}				
-			}				
-		}
-		stage('Build'){
-			steps{
-				echo "Building the code"
-				withMaven(maven: 'Maven3.6.1'){
-					bat 'mvn install'
-				}				
-			}
-		}
-		stage('Deploy'){
-			steps{
-				echo "Deploy the code"
-			}
-		}
+	            
+	            stage('Test'){
+				steps{
+					echo "Testing the code"
+					withMaven(maven: 'Maven3.6.1'){
+						sh 'mvn test'
+					}				
+				   }				
+				} //end of test stage
+				
+				stage('Build'){
+				steps{
+					echo "Building the code"
+					withMaven(maven: 'Maven3.6.1'){
+						sh 'mvn install'
+					}				
+				 }
+			    }
+				stage('Deploy'){
+					steps{
+						echo "Deploy the code"
+					}
+				}
+	           }	
+		     }
+		
 	}
 
 }
