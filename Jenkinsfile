@@ -15,20 +15,22 @@ pipeline{
 					withMaven(maven: 'Maven3.6.1'){
 					bat 'mvn clean compile'
 				  }
-	             }
-	             steps{
-					echo "Testing the code"
-					withMaven(maven: 'Maven3.6.1'){
-					bat 'mvn test'
-				  }
-	             }
-	             steps{
+	             }	             
+	            }
+	            stage('Build'){
+				steps{
 					echo "Building the code"
 					withMaven(maven: 'Maven3.6.1'){
-					bat 'mvn install'
-				  }
-	             }
-	            }
+						bat 'mvn install'
+					}				
+				 }
+			    }
+				stage('Deploy'){
+					steps{
+						echo "Deploy the code"
+					}
+				}
+	            
 	            stage('Build in Linux'){
 	             agent {
 				   label 'Linux'
