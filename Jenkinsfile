@@ -17,7 +17,7 @@ pipeline{
 				  }
 	             }	             
 	            }
-	            stage('Build'){
+	            stage('Build in Windows'){
 				steps{
 					echo "Building the code"
 					withMaven(maven: 'Maven3.6.1'){
@@ -25,7 +25,7 @@ pipeline{
 					}				
 				 }
 			    }
-				stage('Deploy'){
+				stage('Deploy in Windows'){
 					steps{
 						echo "Deploy the code"
 					}
@@ -43,7 +43,7 @@ pipeline{
 	             }
 	            }
 	            
-	            stage('Test'){
+	            stage('Test in Linux'){
 				steps{
 					echo "Testing the code"
 					withMaven(maven: 'Maven3.6.1'){
@@ -52,7 +52,7 @@ pipeline{
 				   }				
 				} //end of test stage
 				
-				stage('Build'){
+				stage('Build in linux'){
 				steps{
 					echo "Building the code"
 					withMaven(maven: 'Maven3.6.1'){
@@ -60,7 +60,7 @@ pipeline{
 					}				
 				 }
 			    }
-				stage('Deploy'){
+				stage('Deploy in linux'){
 					steps{
 						echo "Deploy the code"
 					}
