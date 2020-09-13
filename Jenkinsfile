@@ -17,7 +17,12 @@ pipeline{
 				}		
 			}				
 		}
-		stage('Test'){
+		stage('Test'){ 
+		  with {
+		    expression{
+		    	${params.BRANCHES} == "dev1"
+		    }
+		   } 
 			steps{
 				echo "Testing the code ${params.VERSION}"
 				withMaven(maven: 'Maven3.6.1'){
