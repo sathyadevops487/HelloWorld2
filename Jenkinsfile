@@ -28,6 +28,7 @@ pipeline{
 		stage('Build'){
 			steps{
 				echo "Building the code"
+				echo "Testing in branch ${params.BRANCHES}"
 				withMaven(maven: 'Maven3.6.1'){
 					bat 'mvn install'
 				}				
