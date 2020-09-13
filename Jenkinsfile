@@ -21,7 +21,7 @@ pipeline{
 			steps{
 				with {
 			    	expression{
-			    		${params.BRANCHES} == "dev1"
+			    		${params.BRANCHES} == "dev1" && ${params.BRANCHES} == "master"
 			    	}
 		   		} 
 				echo "Testing the code ${params.VERSION}"
