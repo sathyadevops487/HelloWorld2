@@ -1,6 +1,5 @@
 pipeline{
 	agent any
-<<<<<<< HEAD
 	environment {       
        PATH = "C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Java\\jdk1.8.0_171\\bin;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\nodejs\\;C:\\Program Files\\PuTTY\\;C:\\Program Files\\Git\\cmd;D:\\DevOps\\apache-maven-3.6.3\\bin;C:\\Python27;"
     }	
@@ -20,7 +19,7 @@ pipeline{
 		}
 		stage('Test'){
 			steps{
-				echo "Testing the code"
+				echo "Testing the code ${params.VERSION}"
 				withMaven(maven: 'Maven3.6.1'){
 					bat 'mvn test'
 				}				
@@ -32,35 +31,13 @@ pipeline{
 				withMaven(maven: 'Maven3.6.1'){
 					bat 'mvn install'
 				}				
-=======
-	environment {
-		PATH = "C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Java\\jdk1.8.0_171\\bin;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\nodejs\\;C:\\Program Files\\PuTTY\\;C:\\Program Files\\Git\\cmd;D:\\DevOps\\apache-maven-3.6.3\\bin;C:\\Python27;"
-	}	
-	stages{	
-	stage('Compile'){
-		steps{
-			echo "Compiling the code"
-			withMaven(maven: 'Maven3.6.1'){
-			bat 'mvn clean compile'
->>>>>>> b3fd2da9709bfdb4ed75d75a59577f6b630ed81f
 			}
-	    }
-	}
-	stage('Test'){
-		steps{
-			echo "Testing the code"
-			withMaven(maven: 'Maven3.6.1'){
-			bat 'mvn test'	
-			}
-		  }
-	}
-	stage('Deploy'){
-		steps{
-		echo "Deploy the code"
 		}
-	  }
-	  
-   }
-	
+		stage('Deploy'){
+			steps{
+				echo "Deploy the code"
+			}
+		}
+	}
 
 }
