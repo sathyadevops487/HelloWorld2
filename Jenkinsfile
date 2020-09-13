@@ -5,7 +5,7 @@ pipeline{
     }	
     parameters{
     	string(name: 'VERSION', defaultValue: 'version', description: 'versions'),
-    	choices(name: 'BRANCHES', choice:['dev1','test1','master','uat1'], description:'branches')
+    	choices(name: 'BRANCHES', choice:['dev1','test1','master','uat1'], description:'branches'),
     	booleanParam(name: 'DECFLAG', defaultValue: true, description: 'boolean flag')
     }
 	stages{		
