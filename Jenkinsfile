@@ -5,7 +5,7 @@ pipeline{
        NEW_VERSION = "4.0"
     }	
     tools{
-    	maven 'Maven'
+    	maven 'Maven3.6.1'
     }
     parameters{
     	string(name: 'VERSION', defaultValue: 'version', description: 'versions')
