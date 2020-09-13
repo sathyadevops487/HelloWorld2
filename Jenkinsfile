@@ -25,7 +25,7 @@ pipeline{
 			steps{
 				with {
 			    	expression{
-			    		params.DECFLAG == false
+			    		${params.DECFLAG} == 'false'
 			    	}
 		   		} 
 				echo "Testing the code ${params.VERSION}"
