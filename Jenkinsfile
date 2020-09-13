@@ -25,6 +25,7 @@ pipeline{
 			    	}
 		   		} 
 				echo "Testing the code ${params.VERSION}"
+				echo "ExecutionFlag: ${params.DECFLAG}"
 				withMaven(maven: 'Maven3.6.1'){
 					bat 'mvn test'
 				}				
