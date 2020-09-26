@@ -11,8 +11,9 @@ def compileApp(){
 	echo "Compiling the application"
 }
 def testApp(){
+	def fruit = list_processor[1]
 	echo "Testing the application"
-	echo "List Processor------> "+list_processor[1]
+	echo "List Processor------> ${fruit}"
 }
 
 def deployApp(){
