@@ -12,7 +12,7 @@ def testApp(){
 	def list_processor = "${params.SIMPLE_LIST}"
 	echo "printing the list processor value"
 	echo list_processor
-	for (int f = 0; f < list_processor.length; f++){
+	for (int f = 0; f < list_processor.length(); f++){
 		echo "${list_processor[f]}"
 	}	
 	echo "Testing the application"
