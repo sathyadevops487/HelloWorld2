@@ -1,3 +1,4 @@
+def utilshelper
 pipeline{
 	agent any
 	environment {       
@@ -13,9 +14,20 @@ pipeline{
     	booleanParam(name: 'DECFLAG', defaultValue: false, description: 'boolean flag')
     }
 	stages{		
-		stage('Compile'){
+		stage('init'){
+		   steps{
+		   	script{
+				utilshelper = load "utils.groovy"
+			  }
+		   }
+			
+			
+		}
+		stage('Compile'){			
 			steps{
-				echo "Compiling the code"
+			   script{
+			   		utilshelper.compileApp()
+			   }				
 				withMaven(maven: 'Maven3.6.1'){
 					bat 'mvn clean compile'
 				}		
@@ -27,8 +39,10 @@ pipeline{
 			   	expression{
 			    		params.DECFLAG
 			    	}
-		   		} 		
-				echo "Testing the code ${params.VERSION}"
+		   		}
+		   		script{
+		   			utilshelper.testApp()
+		   		}					
 				echo BRANCH_NAME
 				echo "New Version env var ${NEW_VERSION}"
 				echo "ExecutionFlag: ${params.DECFLAG}"
@@ -39,7 +53,9 @@ pipeline{
 		}
 		stage('Build'){
 			steps{
-				echo "Building the code"
+			   script{
+			   		utilshelper.buildApp()
+			   }				
 				echo "Testing in branch ${params.BRANCHES}"
 				withMaven(maven: 'Maven3.6.1'){
 					bat 'mvn install'
@@ -48,7 +64,9 @@ pipeline{
 		}
 		stage('Deploy'){
 			steps{
-				echo "Deploy the code"
+				script{
+					utilshelper.deployApp()
+				}
 			}
 		}
 	}
