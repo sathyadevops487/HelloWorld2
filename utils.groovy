@@ -9,7 +9,9 @@ def compileApp(){
 	echo "Compiling the application"
 }
 def testApp(){	
-	def list_processor = ${params.SIMPLE_LIST} 
+	def list_processor = "${params.SIMPLE_LIST}"
+	echo "printing the list processor value"
+	echo list_processor
 	for (int f = 0; f < list_processor.length; f++){
 		echo "${list_processor[f]}"
 	}	
