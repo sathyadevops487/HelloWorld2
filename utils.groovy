@@ -11,7 +11,7 @@ def compileApp(){
 	echo "Compiling the application"
 }
 def testApp(){
-	def fruit = list_processor[1]
+	def fruit = ${list_processor[1]}
 	echo "Testing the application"
 	echo "List Processor------> ${fruit}"
 }
