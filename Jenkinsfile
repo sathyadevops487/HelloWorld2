@@ -10,7 +10,7 @@ pipeline{
     parameters{
     	string(name: 'VERSION', defaultValue: 'version', description: 'versions')
     	choice(name: 'BRANCHES', choices:['dev1','test1','master','uat1'], description:'branches')
-    	booleanParam(name: 'DECFLAG', defaultValue: true, description: 'boolean flag')
+    	booleanParam(name: 'DECFLAG', defaultValue: false, description: 'boolean flag')
     }
 	stages{		
 		stage('Compile'){
@@ -24,7 +24,7 @@ pipeline{
 		stage('Test'){
 			with {
 			    	expression{
-			    		params.DECFLAG == false
+			    		params.DECFLAG
 			    	}
 		   	}  	  
 			steps{				
