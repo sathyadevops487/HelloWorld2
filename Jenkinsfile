@@ -21,13 +21,13 @@ pipeline{
 				}		
 			}				
 		}
-		stage('Test'){
-			with {
-			    	expression{
+		stage('Test'){			 	  
+			steps{		
+				with {
+			   	expression{
 			    		params.DECFLAG
 			    	}
-		   	}  	  
-			steps{				
+		   		} 		
 				echo "Testing the code ${params.VERSION}"
 				echo BRANCH_NAME
 				echo "New Version env var ${NEW_VERSION}"
