@@ -10,7 +10,7 @@ pipeline{
     }
     parameters{
     	string(name: 'VERSION', defaultValue: '1.3', description: 'versions')
-    	string(name: 'SIMPLE_LIST' defaultValue: 'apples, oranges, mangoes', description: 'processing list')
+    	string(name: 'SIMPLE_LIST', defaultValue: 'apples, oranges, mangoes', description: 'processing list')
     	choice(name: 'BRANCHES', choices:['dev1','test1','master','uat1'], description:'branches')
     	booleanParam(name: 'DECFLAG', defaultValue: false, description: 'boolean flag')
     }
