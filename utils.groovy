@@ -4,7 +4,8 @@ def list_processor = params.SIMPLE_LIST.split(',')
 
 
 def buildApp(){
-	echo "Building the application " 
+	echo "Building the application "
+	echo "list from jenkins file ${params.SIMPLE_LIST}" 
 }
 
 def compileApp(){
