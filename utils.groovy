@@ -12,7 +12,7 @@ def compileApp(){
 }
 def testApp(){
 	echo "Testing the application"
-	echo "List Processor------> list_processor[1]"
+	echo "List Processor------> "+list_processor[1]
 }
 
 def deployApp(){
