@@ -11,10 +11,12 @@ def buildApp(){
 def compileApp(){
 	echo "Compiling the application"
 }
-def testApp(){
-	def fruit = "${list_processor[1]}"
+def testApp(){	
+	for (int f = 0; f < list_processor.length; f++){
+		echo "${list_processor[f]}"
+	}	
 	echo "Testing the application"
-	echo "List Processor------> ${fruit}"
+	
 }
 
 def deployApp(){
