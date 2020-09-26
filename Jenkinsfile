@@ -34,6 +34,17 @@ pipeline{
 				}		
 			}				
 		}
+		stage('Build'){
+			steps{
+			   script{
+			   		utilshelper.buildApp()
+			   }				
+				echo "Testing in branch ${params.BRANCHES}"
+				withMaven(maven: 'Maven3.6.1'){
+					bat 'mvn install'
+				}				
+			}
+		}
 		stage('Test'){			 	  
 			steps{		
 				with {
@@ -52,17 +63,7 @@ pipeline{
 				}				
 			}				
 		}
-		stage('Build'){
-			steps{
-			   script{
-			   		utilshelper.buildApp()
-			   }				
-				echo "Testing in branch ${params.BRANCHES}"
-				withMaven(maven: 'Maven3.6.1'){
-					bat 'mvn install'
-				}				
-			}
-		}
+		
 		stage('Deploy'){
 			steps{
 				script{
