@@ -9,7 +9,7 @@ pipeline{
     	maven 'Maven3.6.1'
     }
     parameters{
-    	string(name: 'VERSION', defaultValue: 'version', description: 'versions')
+    	string(name: 'VERSION', defaultValue: '1.3', description: 'versions')
     	choice(name: 'BRANCHES', choices:['dev1','test1','master','uat1'], description:'branches')
     	booleanParam(name: 'DECFLAG', defaultValue: false, description: 'boolean flag')
     }
