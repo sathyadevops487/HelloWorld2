@@ -1,4 +1,7 @@
 def version="1.0" 
+def list_processor = ${params.SIMPLE_LIST}.split(',')
+
+
 
 def buildApp(){
 	echo "Building the application ${version}" 
@@ -9,6 +12,7 @@ def compileApp(){
 }
 def testApp(){
 	echo "Testing the application"
+	echo "List Processor------> ${list_processor[1]}"
 }
 
 def deployApp(){
