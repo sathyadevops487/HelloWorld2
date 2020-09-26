@@ -1,5 +1,5 @@
 def version="1.0" 
-def list_processor = ${params.SIMPLE_LIST}.split(',')
+def list_processor = params.SIMPLE_LIST.split(',')
 
 
 
