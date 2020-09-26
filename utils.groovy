@@ -1,17 +1,15 @@
 def version="1.0" 
-def list_processor = params.SIMPLE_LIST.split(',')
-
-
 
 def buildApp(){
 	echo "Building the application "
-	echo "params.SIMPLE_LIST" 
+	echo "${params.SIMPLE_LIST}" 
 }
 
 def compileApp(){
 	echo "Compiling the application"
 }
 def testApp(){	
+	def list_processor = ${params.SIMPLE_LIST} 
 	for (int f = 0; f < list_processor.length; f++){
 		echo "${list_processor[f]}"
 	}	
