@@ -7,7 +7,7 @@ def doSimpleHttp(){
 		 connection.addRequestProperty("Accept", "application/json");
 		 
 			 if(connection.responseCode == 200){
-					def json =  new JsonSlurper().parse(connection.inputStream.text)
+					def json =  new JsonSlurper().parse(connection.inputStream)
 					println json.MRData.url
 			 }else{
 				 println connection.responseCode
