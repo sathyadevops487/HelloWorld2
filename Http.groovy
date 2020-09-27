@@ -1,4 +1,3 @@
-import groovyx.net.http.HTTPBuilder;
 
 def doSimpleHttp(){
 		 def baseUrl = new URL('http://localhost:8080/job/multibranchpipeline/job/master/lastSuccessfulBuild/api/json/buildNumber')
