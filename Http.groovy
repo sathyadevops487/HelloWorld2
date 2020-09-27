@@ -6,7 +6,7 @@ def doSimpleHttp(){
 		 connection.with {
 		   doOutput = true
 		   requestMethod = 'GET'
-		   println content.text
+		   println connection.inputStream.text
 		 }
 }
 
