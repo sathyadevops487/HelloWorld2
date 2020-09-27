@@ -7,7 +7,7 @@ def testHttpMethod(){
 	connection.with{
 		doOutput = true
 		requestMethod = 'GET'
-		println connection.inputstream.text
+		println connection.inputStream.text
 	}
 	
 }
