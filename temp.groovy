@@ -3,8 +3,11 @@ import jenkins.*
 
 
 def doGetAllJenkinsDetails(jobname){
+	def list = ["Kay","Henry","Justin","Tom"]
 	def lastSuccessfulPipelineID = Jenkins.instance.getItem("multibranchpipeline").lastSuccessfulBuild
-	
+	for (int f = 0; f < list.length; f++){
+		echo "${list[f]}"
+	}
 	println(lastSuccessfulPipelineID)
 }
 
