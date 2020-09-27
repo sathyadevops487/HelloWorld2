@@ -7,7 +7,7 @@ def testListMethod(){
 
 def testMapMethod(){
 	def m_map = [name:"Jerry", age:42, city:"Bangalore"]
-	print m_map.get("city")
+	println m_map.get("city")
 	m_map.each{entry->
 		println "$entry.key", "$entry.value"
 	}
