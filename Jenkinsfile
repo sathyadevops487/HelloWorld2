@@ -1,4 +1,5 @@
-def temphelper
+
+def httputilshelper
 pipeline{
 	agent any
 	environment {       
@@ -18,7 +19,7 @@ pipeline{
 		stage('init'){
 		   steps{
 		   	script{				
-				temphelper = load "temp.groovy"
+				httputilshelper = load "Http.groovy"
 			  }
 		   }
 		}
@@ -59,7 +60,7 @@ pipeline{
 			steps{
 				script{
 					echo JOB_NAME
-					temphelper.doGetAllJenkinsDetails(JOB_NAME)
+					temphelper.doSimpleHttp()
 				}
 			}
 		}
