@@ -1,6 +1,6 @@
-import jenkins.model.Jenkins;
+import jenkins.model.*
 
-def jenkins = Jenkins.getInstance()
+def jenkins = Jenkins.instance
 def jobName = "multibranchtest"
 def job = jenkins.getItem(jobName)
 
