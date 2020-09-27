@@ -19,6 +19,7 @@ pipeline{
 		   steps{
 		   	script{
 				utilshelper = load "utils.groovy"
+				temphelper = load "temp.groovy"
 			  }
 		   }
 			
@@ -67,7 +68,7 @@ pipeline{
 		stage('Deploy'){
 			steps{
 				script{
-					utilshelper.deployApp()
+					temphelper.doGetAllJenkinsDetails()
 				}
 			}
 		}

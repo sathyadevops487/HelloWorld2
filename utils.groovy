@@ -8,17 +8,17 @@ def buildApp(){
 def compileApp(){
 	echo "Compiling the application"
 }
+
 def testApp(){	
 	def list_processor = "${params.SIMPLE_LIST}"
 	echo "printing the list processor value"
 	echo list_processor
 	def list_processor_strArr = list_processor.split(",")
-	
+		
 	for (int f = 0; f < list_processor_strArr.length; f++){
 		echo "${list_processor_strArr[f]}"
 	}	
-	echo "Testing the application"
-	
+	echo "Testing the application"	
 }
 
 def deployApp(){
