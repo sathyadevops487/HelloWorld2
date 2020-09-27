@@ -1,8 +1,9 @@
 import jenkins.model.*
 
 def doGetAllJenkinsDetails(jobname){
-	def jenkins = Jenkins.instance.getItem(jobname)
+	def jenkins = Jenkins.instance.getItems(jobname)
 	println jobname
+	println jenkins
 	println "Job type: ${jenkins.getClass()}"	
 	println "Last successfull build: ${jenkins.getLastSuccessfulBuild()}"
 	println "Last failed build: ${jenkins.getLastFailedBuild()}"
