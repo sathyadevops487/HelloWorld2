@@ -61,6 +61,7 @@ pipeline{
 				script{
 					echo JOB_NAME
 					datatypeshelper.testListMethod()
+					datatypeshelper.testMapMethod()
 				}
 			}
 		}

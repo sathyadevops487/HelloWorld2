@@ -12,4 +12,15 @@ def testMapMethod(){
 		println "$entry.key", "$entry.value"
 	}
 }
+def testConditionalStatements(){
+	if(condition){
+		
+	}
+	else if(condition){
+		
+	}
+	else{
+		
+	}
+}
 return this
