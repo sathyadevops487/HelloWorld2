@@ -1,5 +1,5 @@
 
-def httputilshelper
+def datatypeshelper
 pipeline{
 	agent any
 	environment {       
@@ -19,7 +19,7 @@ pipeline{
 		stage('init'){
 		   steps{
 		   	script{				
-				httputilshelper = load "Http.groovy"
+				datatypeshelper = load "datatypes.groovy"
 			  }
 		   }
 		}
@@ -60,7 +60,7 @@ pipeline{
 			steps{
 				script{
 					echo JOB_NAME
-					httputilshelper.doSimpleHttp()
+					datatypeshelper.testListMethod()
 				}
 			}
 		}

@@ -1,7 +1,8 @@
+
 def version="1.0" 
 
 def buildApp(){
-	echo "Building the application "
+	echo "Building the application"
 	echo "${params.SIMPLE_LIST}" 
 }
 
