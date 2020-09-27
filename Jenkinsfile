@@ -1,4 +1,3 @@
-def utilshelper
 def temphelper
 pipeline{
 	agent any
@@ -18,19 +17,13 @@ pipeline{
 	stages{		
 		stage('init'){
 		   steps{
-		   	script{
-				utilshelper = load "utils.groovy"
+		   	script{				
 				temphelper = load "temp.groovy"
 			  }
 		   }
-			
-			
 		}
 		stage('Compile'){			
-			steps{
-			   script{
-			   		utilshelper.compileApp()
-			   }				
+			steps{			   				
 				withMaven(maven: 'Maven3.6.1'){
 					bat 'mvn clean compile'
 				}		
@@ -38,9 +31,7 @@ pipeline{
 		}
 		stage('Build'){
 			steps{
-			   script{
-			   		utilshelper.buildApp()
-			   }				
+			   				
 				echo "Testing in branch ${params.BRANCHES}"
 				withMaven(maven: 'Maven3.6.1'){
 					bat 'mvn install'
@@ -54,9 +45,7 @@ pipeline{
 			    		params.DECFLAG
 			    	}
 		   		}
-		   		script{
-		   			utilshelper.testApp()
-		   		}					
+		   							
 				echo BRANCH_NAME
 				echo "New Version env var ${NEW_VERSION}"
 				echo "ExecutionFlag: ${params.DECFLAG}"
