@@ -13,8 +13,9 @@ def testHttpMethod(){
 		println connection.inputStream.text
 	}*/
 	if(connection.responseCode == 200){		
-		def json = new JsonSlurper.parse(connection.inputStream);
-		//def json = new JsonSlurper.parseText(connection.inputStream.text)
+		//def json = new JsonSlurper.parse(connection.inputStream);
+		def jslurper = new JsonSlurper();
+		def json = jslurper.parseText(connection.inputStream.text)
 		print "URL from API ------> "+json.MRData.url
 	}
 	else{
