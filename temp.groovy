@@ -1,7 +1,9 @@
 import jenkins.model.*
+import jenkins.*
+
 
 def doGetAllJenkinsDetails(jobname){
-	def lastSuccessfulPipelineID = build.getProject().getLastSuccessfulBuild().properties.get("envVars")['JOB_NAME']
+	def lastSuccessfulPipelineID = Jenkins.instance.getItem(jobname).lastSuccessfulBuild.displayName
 	def pa = new ParametersAction([
 		new StringParameterValue("lastSuccessfulPipelineID", lastSuccessfulPipelineID)
 	])
