@@ -60,7 +60,7 @@ pipeline{
 			steps{
 				script{
 					echo JOB_NAME
-					temphelper.doSimpleHttp()
+					httputilshelper.doSimpleHttp()
 				}
 			}
 		}
