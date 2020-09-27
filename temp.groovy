@@ -1,10 +1,10 @@
 import jenkins.model.*
 
-def jenkins = Jenkins.instance
-def jobName = "multibranchtest"
-def job = jenkins.getItem(jobName)
+
 
 def doGetAllJenkinsDetails(){
+	def jenkins = Jenkins.instance.getItem("multibranchtest")
+	def job = jenkins.getItem(jobName)
 	println "Job type: ${job.getClass()}"
 	println "Is building: ${job.isBuilding()}"
 	println "Is in queue: ${job.isInQueue()}"
