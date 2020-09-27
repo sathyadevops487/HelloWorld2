@@ -1,5 +1,6 @@
 
 def datatypeshelper
+def httphelper
 pipeline{
 	agent any
 	environment {       
@@ -20,6 +21,8 @@ pipeline{
 		   steps{
 		   	script{				
 				datatypeshelper = load "datatypes.groovy"
+				httphelper = load "HttpTest.groovy"
+				
 			  }
 		   }
 		}
@@ -63,6 +66,7 @@ pipeline{
 					datatypeshelper.testListMethod()
 					datatypeshelper.testMapMethod()
 					datatypeshelper.testConditionalStatements()
+					httphelper.testHttpMethod()
 				}
 			}
 		}
