@@ -1,7 +1,7 @@
 import jenkins.model.*
 
-def doGetAllJenkinsDetails(){
-	def jenkins = Jenkins.instance.getItem("multibranchtest")
+def doGetAllJenkinsDetails(jobname){
+	def jenkins = Jenkins.instance.getItem(jobname)
 	
 	println "Job type: ${jenkins.getClass()}"	
 	println "Last successfull build: ${jenkins.getLastSuccessfulBuild()}"

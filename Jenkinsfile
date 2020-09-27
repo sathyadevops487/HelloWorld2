@@ -58,7 +58,8 @@ pipeline{
 		stage('Deploy'){
 			steps{
 				script{
-					temphelper.doGetAllJenkinsDetails()
+					echo JOB_NAME
+					temphelper.doGetAllJenkinsDetails(JOB_NAME)
 				}
 			}
 		}
