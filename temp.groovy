@@ -11,3 +11,5 @@ def doGetAllJenkinsDetails(){
 	])
 	println(lastSuccessfulPipelineID)
 }
+
+return this
