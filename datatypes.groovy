@@ -8,19 +8,19 @@ def testListMethod(){
 def testMapMethod(){
 	def m_map = [name:"Jerry", age:42, city:"Bangalore"]
 	println m_map.get("city")
-	m_map.each{entry->
+	/*m_map.each{entry -->
 		println "$entry.key", "$entry.value"
-	}
+	}*/
 }
 def testConditionalStatements(){
-	if(condition){
-		
+	if(params.DECFLAG){
+		println "The execute flag is set to true!"
 	}
 	else if(condition){
-		
+		println "The execute flag is set to false"
 	}
 	else{
-		
+		println "Default value"
 	}
 }
 return this

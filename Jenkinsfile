@@ -62,6 +62,7 @@ pipeline{
 					echo JOB_NAME
 					datatypeshelper.testListMethod()
 					datatypeshelper.testMapMethod()
+					datatypeshelper.testConditionalStatements()
 				}
 			}
 		}
